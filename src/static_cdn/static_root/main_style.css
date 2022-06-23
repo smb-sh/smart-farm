@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    background-color: #0e1b0b;
+}
+
+.header {
+    background-color:#072400;
+    padding:15px;
+    text-align:center;
+    margin: 10px;
+}
+
+.circle-diagrams {
+    background-color: #11160f;
+    width: auto;
+    margin: 10px;
+    overflow: auto;
+}
+
+.wheather {
+    background-color: #11160f;
+    width: auto;
+    margin: 10px;
+    overflow: auto;
+} 
+
+.plant {
+    background-color: #11160f;
+    width: auto;
+    margin: 10px;
+    overflow: auto;
+} 
+
+.info_container {
+    background-color: #16160f;
+    float: left;
+    width: 33.33%;
+}
+
+.box {
+    background-color: #070c06;
+    margin: 5px;
+    padding: 5px;
+    color: aliceblue;
+}
+
+.monitor {
+    background-color: #070c06;
+    margin: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    /* For mobile phones: */
+    .menu, .main, .info_container {
+      width: 100%;
+    }
+}

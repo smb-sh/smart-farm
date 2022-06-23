@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <title>smartfarm</title>
+</head>
+<body>
+    <div class="header">
+        <h1 style="color: #ffffff;">smartfarm</h1>
+    </div>
+    <div class="circle-diagrams">
+        <div class="info_container">
+            <div class="box">
+                <p>Wheather t.</p>
+                <div class="monitor">
+                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                        <div style="position: relative;display: flex;justify-content: center;align-items: center;">
+                            <div id="wtps"></div>
+                            <div id="wtmc"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_container">
+            <div class="box">
+                <p>Wheather m.</p>
+                <div class="monitor">
+                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                        <div style="position: relative;display: flex;justify-content: center;align-items: center;">
+                            <div id="wmps"></div>
+                            <div id="wmmc"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_container">
+            <div class="box">
+                <p>Soil t.</p>
+                <div class="monitor">
+                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                        <div style="position: relative;display: flex;justify-content: center;align-items: center;">
+                            <div id="stps"></div>
+                            <div id="stmc"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_container">
+            <div class="box">
+                <p>Soil m.</p>
+                <div class="monitor">
+                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                        <div style="position: relative;display: flex;justify-content: center;align-items: center;">
+                            <div id="smps"></div>
+                            <div id="smmc"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_container">
+            <div class="box">
+                <p>Humadity</p>
+                <div class="monitor">
+                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                        <div style="position: relative;display: flex;justify-content: center;align-items: center;">
+                            <div id="hps"></div>
+                            <div id="hmc"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wheather">
+        <div class="info_container">
+            <div class="box">
+                <img src="{% static 'images/wind.png' %}">
+                <div class="monitor">
+                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                        <div id="wmc"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_container">
+            <div class="box">
+                <img src="{% static 'images/sun.png' %}">
+                <div class="monitor">
+                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                        <div id="uvmc"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="plant">
+        <div class="info_container">
+            <div class="box">
+                <img src="{% static 'images/healthy.png' %}">
+                <div class="monitor">
+                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                        <div id="plant_status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'wheather_t.js' %}"></script>
+    <script src="{% static 'wheather_m.js' %}"></script>
+    <script src="{% static 'soil_t.js' %}"></script>
+    <script src="{% static 'soil_m.js' %}"></script>
+    <script src="{% static 'humadity.js' %}"></script>
+    <script src="{% static 'wind.js' %}"></script>
+    <script src="{% static 'uv.js' %}"></script>
+    <script src="{% static 'plant_status.js' %}"></script>
+</body>
+</html>

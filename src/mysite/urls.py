@@ -20,7 +20,7 @@ from .views import panel
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',panel),
-    # path('log/',include('logapp.urls')),
+    path('api/',include('api_app.urls')),
     # path('account/',include('account_app.urls')),
     # path('header', header, name="header"),
     # path('footer', footer, name="footer"),

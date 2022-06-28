@@ -15,7 +15,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv()
 CSRF_TRUSTED_ORIGINS = ['https://www.smartfarm.smbapp.ir']
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -29,7 +29,7 @@ DEBUG = True
 IP_SETTING = os.environ.get('IP_SETTING')
 ALLOWED_HOSTS = ['https://smartfarm.smbapp.ir','https://www.smartfarm.smbapp.ir',IP_SETTING,'localhost','smartfarm.smbapp.ir','www.smartfarm.smbapp.ir']
 
-load_dotenv()
+
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 

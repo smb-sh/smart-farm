@@ -81,29 +81,29 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 NAME_DATABASE = os.environ.get('NAME_DATABASE')
 USER_DATABASE = os.environ.get('USER_DATABASE')
 PASS_DATABASE = os.environ.get('PASS_DATABASE')
 PORT_DATABASE = os.environ.get('PORT_DATABASE')
-print(NAME_DATABASE,USER_DATABASE,PASS_DATABASE,PORT_DATABASE)
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': NAME_DATABASE,
-#         'USER': USER_DATABASE,
-#         'PASSWORD': PASS_DATABASE,
-#         'HOST': 'localhost',
-#         'PORT': PORT_DATABASE,
-#     }
-# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': NAME_DATABASE,
+        'USER': USER_DATABASE,
+        'PASSWORD': PASS_DATABASE,
+        'HOST': 'localhost',
+        'PORT': PORT_DATABASE,
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

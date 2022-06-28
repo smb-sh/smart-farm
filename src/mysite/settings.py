@@ -16,7 +16,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+CSRF_TRUSTED_ORIGINS = ['https://www.smartfarm.smbapp.ir']
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vof9vibu4bdon+i#!ink_%oro@h1v^^b5&^=nux^0(_k0e(@dz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+#DEBUG = True
+DEBUG = False
+ALLOWED_HOSTS = ['https://smartfarm.smbapp.ir','https://www.smartfarm.smbapp.ir','185.128.139.84','smartfarm.smbapp.ir','www.smartfarm.smbapp.ir']
 
 
 # Application definition
@@ -76,14 +76,24 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'smartfarmdjangov1',
+        'USER': 'smbapp',
+        'PASSWORD': 'RJbDlrThh8S9EFl',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -125,12 +135,12 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, "assets")]
 
 #on server
-# STATIC_ROOT='../public_html/site.ir/static'
-# MEDIA_ROOT='../public_html/site.ir/media'
+STATIC_ROOT='/home/smbapp/domains/smartfarm.smbapp.ir/public_html/static'
+MEDIA_ROOT='/home/smbapp/domains/smartfarm.smbapp.ir/public_html/media'
 
 # for developing in device
-STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn", "static_root")
-MEDIA_ROOT = os.path.join(BASE_DIR, "static_cdn", "media_root")
+#STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn", "static_root")
+#MEDIA_ROOT = os.path.join(BASE_DIR, "static_cdn", "media_root")
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

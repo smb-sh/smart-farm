@@ -24,8 +24,8 @@ CSRF_TRUSTED_ORIGINS = ['https://www.smartfarm.smbapp.ir']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 IP_SETTING = os.environ.get('IP_SETTING')
 ALLOWED_HOSTS = ['https://smartfarm.smbapp.ir','https://www.smartfarm.smbapp.ir',IP_SETTING,'localhost','smartfarm.smbapp.ir','www.smartfarm.smbapp.ir']
 

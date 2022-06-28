@@ -26,7 +26,8 @@ CSRF_TRUSTED_ORIGINS = ['https://www.smartfarm.smbapp.ir']
 
 #DEBUG = True
 DEBUG = False
-ALLOWED_HOSTS = ['https://smartfarm.smbapp.ir','https://www.smartfarm.smbapp.ir','185.128.139.84','smartfarm.smbapp.ir','www.smartfarm.smbapp.ir']
+IP_SETTING = os.environ.get('IP_SETTING')
+ALLOWED_HOSTS = ['https://smartfarm.smbapp.ir','https://www.smartfarm.smbapp.ir',IP_SETTING,'smartfarm.smbapp.ir','www.smartfarm.smbapp.ir']
 
 load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -87,14 +88,20 @@ DATABASES = {
     }
 }
 """
+
+NAME_DATABASE = os.environ.get('NAME_DATABASE')
+USER_DATABASE = os.environ.get('USER_DATABASE')
+PASS_DATABASE = os.environ.get('PASS_DATABASE')
+PORT_DATABASE = os.environ.get('PORT_DATABASE')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'smartfarmdjangov1',
-        'USER': 'smbapp',
-        'PASSWORD': 'RJbDlrThh8S9EFl',
+        'NAME': NAME_DATABASE,
+        'USER': USER_DATABASE,
+        'PASSWORD': PASS_DATABASE,
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': PORT_DATABASE,
     }
 }
 

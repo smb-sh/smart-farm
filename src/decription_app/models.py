@@ -12,6 +12,3 @@ class MyData(models.Model):
     rays = models.CharField(max_length=200, blank=True)
     rain = models.CharField(max_length=200, blank=True)
     date_added = models.DateTimeField(default=timezone.now, blank=False)
-
-    def __str__(self):
-        return self.sensor_data

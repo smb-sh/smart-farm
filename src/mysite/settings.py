@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+from dotenv import load_dotenv
 import os
 from pathlib import Path
 
@@ -21,12 +21,15 @@ CSRF_TRUSTED_ORIGINS = ['https://www.smartfarm.smbapp.ir']
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vof9vibu4bdon+i#!ink_%oro@h1v^^b5&^=nux^0(_k0e(@dz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 #DEBUG = True
 DEBUG = False
 ALLOWED_HOSTS = ['https://smartfarm.smbapp.ir','https://www.smartfarm.smbapp.ir','185.128.139.84','smartfarm.smbapp.ir','www.smartfarm.smbapp.ir']
+
+load_dotenv()
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # Application definition

@@ -83,7 +83,7 @@
     <div class="wheather">
         <div class="info_container">
             <div class="box">
-                <img src="{% static 'images/wind.png' %}">
+                <img src="/smartfarm/images/wind.png">
                 <div class="monitor">
                     <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
                         <div id="wmc"></div>
@@ -93,7 +93,7 @@
         </div>
         <div class="info_container">
             <div class="box">
-                <img src="{% static 'images/sun.png' %}">
+                <img src="/smartfarm/images/sun.png">
                 <div class="monitor">
                     <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
                         <div id="uvmc"></div>
@@ -102,16 +102,77 @@
             </div>
         </div>
     </div>
-    <div class="plant">
-        <div class="info_container">
-            <div class="box">
-                <img src="{% static 'images/healthy.png' %}">
-                <div class="monitor">
-                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
-                        <div id="plant_status"></div>
-                    </div>
-                </div>
+    <div class="plant-status">
+        <div class="plant">
+            <div class="title">
+                <h1>your plant</h1>
             </div>
+            <img class="plant_image" src="/smartfarm/images/plant.jpg">
+            <div class="title">
+                <h1>irrigation program</h1>
+            </div>
+            <div class="week">
+                <label><input type="checkbox" name="monday" value="0"><span>monday</span></label>
+                <label><input type="checkbox" name="thursday" value="1"><span>tuesday</span></label>
+                <label><input type="checkbox" name="wednesday" value="2"><span>wednesday</span></label>
+                <label><input type="checkbox" name="tuesday" value="3"><span>thursday</span></label>
+                <label><input type="checkbox" name="friday" value="4"><span>friday</span></label>
+                <label><input type="checkbox" name="saturday" value="5"><span>saturday</span></label>
+                <label><input type="checkbox" name="sunday" value="6"><span>sunday</span></label>
+            </div>
+            <form name="irrigation_program" action="/">
+                <div class="time-amount" id="monday">
+                    <label><span>monday</span><input type="time" name="monday-time" value=""><input type="range" name="monday-amount" min="0.000" max="10.000" value=""></label>
+                </div>
+                <div class="time-amount" id="tuesday">
+                    <label><span>tuesday</span><input type="time" name="teusday-time" value=""><input type="range" name="tuesday-amount" min="0.000" max="10.000" value=""></label>
+                </div>
+                <div class="time-amount" id="wednesday">
+                    <label><span>wednesday</span><input type="time" name="wednesday-time" value=""><input type="range" name="wednesday-amount" min="0.000" max="10.000" value=""></label>
+                </div>    
+                <div class="time-amount" id="thursday">
+                    <label><span>thursday</span><input type="time" name="thursday-time" value=""><input type="range" name="thursday-amount" min="0.000" max="10.000" value=""></label>
+                </div>
+                <div class="time-amount" id="friday">
+                    <label><span>friday</span><input type="time" name="friday-time" value=""><input type="range" name="friday-amount" min="0.000" max="10.000" value=""></label>
+                </div>    
+                <div class="time-amount" id="saturday">
+                    <label><span>saturday</span><input type="time" name="saturday-time" value=""><input type="range" name="saturday-amount" min="0.000" max="10.000" value=""></label>
+                </div>
+                <div class="time-amount" id="sunday">
+                    <label><span>sunday</span><input type="time" name="sunday-time" value=""><input type="range" name="sunday-amount" min="0.000" max="10.000" value=""></label>
+                </div>
+                <input type="submit" value="submit">
+            </form>
+            <!-- <div class="irrigation_settings">
+                <div class="days">
+                    <span>monday</span>
+                    <span>tuesday</span>
+                    <span>wednesday</span>
+                    <span>thursday</span>
+                    <span>friday</span>
+                    <span>saturday</span>
+                    <span>sunday</span>
+                </div>
+                <div class="times">
+                    <input type="time" name="monday-time">
+                    <input type="time" name="teusday-time">
+                    <input type="time" name="wednesday-time">
+                    <input type="time" name="thursday-time">
+                    <input type="time" name="friday-time">
+                    <input type="time" name="saturday-time">
+                    <input type="time" name="sunday-time">
+                </div>
+                <div class="ranges">
+                    <input type="range" name="monday-amount" min="0.000" max="10.000">
+                    <input type="range" name="tuesday-amount" min="0.000" max="10.000">
+                    <input type="range" name="wednesday-amount" min="0.000" max="10.000">
+                    <input type="range" name="thursday-amount" min="0.000" max="10.000">
+                    <input type="range" name="friday-amount" min="0.000" max="10.000">
+                    <input type="range" name="saturday-amount" min="0.000" max="10.000">
+                    <input type="range" name="sunday-amount" min="0.000" max="10.000">
+                </div>
+            </div> -->
         </div>
     </div>
     <script src="{% static 'wheather_t.js' %}"></script>

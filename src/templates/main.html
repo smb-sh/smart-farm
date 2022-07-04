@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,8 @@
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <title>smartfarm</title>
 </head>
+{% block content %}
+
 <body>
     <div class="header">
         <h1 style="color: #ffffff;">smartfarm</h1>
@@ -18,20 +21,22 @@
             <div class="box">
                 <p>Wheather t.</p>
                 <div class="monitor">
-                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                    <div
+                        style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
                         <div style="position: relative;display: flex;justify-content: center;align-items: center;">
                             <div id="wtps"></div>
-                            <div id="wtmc"></div>
+                            <div id="wtmc">50</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="info_container">
+        <!-- <div class="info_container">
             <div class="box">
                 <p>Wheather m.</p>
                 <div class="monitor">
-                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                    <div
+                        style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
                         <div style="position: relative;display: flex;justify-content: center;align-items: center;">
                             <div id="wmps"></div>
                             <div id="wmmc"></div>
@@ -39,12 +44,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="info_container">
+        </div> -->
+        <!-- <div class="info_container">
             <div class="box">
                 <p>Soil t.</p>
                 <div class="monitor">
-                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                    <div
+                        style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
                         <div style="position: relative;display: flex;justify-content: center;align-items: center;">
                             <div id="stps"></div>
                             <div id="stmc"></div>
@@ -52,12 +58,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="info_container">
             <div class="box">
                 <p>Soil m.</p>
                 <div class="monitor">
-                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                    <div
+                        style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
                         <div style="position: relative;display: flex;justify-content: center;align-items: center;">
                             <div id="smps"></div>
                             <div id="smmc"></div>
@@ -68,9 +75,10 @@
         </div>
         <div class="info_container">
             <div class="box">
-                <p>Humadity</p>
+                <p>Humidity</p>
                 <div class="monitor">
-                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                    <div
+                        style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
                         <div style="position: relative;display: flex;justify-content: center;align-items: center;">
                             <div id="hps"></div>
                             <div id="hmc"></div>
@@ -83,9 +91,10 @@
     <div class="wheather">
         <div class="info_container">
             <div class="box">
-                <img src="{% static 'images/wind.png' %}">
+                <img src="{% static 'images/rainy.png' %}">
                 <div class="monitor">
-                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                    <div
+                        style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
                         <div id="wmc"></div>
                     </div>
                 </div>
@@ -95,10 +104,19 @@
             <div class="box">
                 <img src="{% static 'images/sun.png' %}">
                 <div class="monitor">
-                    <div style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
+                    <div
+                        style="position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 10px;">
                         <div id="uvmc"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="info_container">
+            <div class="box">
+                <h2>Latest report</h2>
+                <h2>{{ mydata.date_added }}</h2>
+                
             </div>
         </div>
     </div>
@@ -107,7 +125,7 @@
             <div class="title">
                 <h1>your plant</h1>
             </div>
-            <img class="plant_image" src="/smartfarm/images/plant.jpg">
+            <img class="plant_image" src="{% static 'images/plant.jpg' %}">
             <div class="title">
                 <h1>irrigation program</h1>
             </div>
@@ -122,25 +140,32 @@
             </div>
             <form name="irrigation_program" action="/">
                 <div class="time-amount" id="monday">
-                    <label><span>monday</span><input type="time" name="monday-time" value=""><input type="range" name="monday-amount" min="0.000" max="10.000" value=""></label>
+                    <label><span>monday</span><input type="time" name="monday-time" value=""><input type="range"
+                            name="monday-amount" min="0.000" max="10.000" value=""></label>
                 </div>
                 <div class="time-amount" id="tuesday">
-                    <label><span>tuesday</span><input type="time" name="teusday-time" value=""><input type="range" name="tuesday-amount" min="0.000" max="10.000" value=""></label>
+                    <label><span>tuesday</span><input type="time" name="teusday-time" value=""><input type="range"
+                            name="tuesday-amount" min="0.000" max="10.000" value=""></label>
                 </div>
                 <div class="time-amount" id="wednesday">
-                    <label><span>wednesday</span><input type="time" name="wednesday-time" value=""><input type="range" name="wednesday-amount" min="0.000" max="10.000" value=""></label>
-                </div>    
+                    <label><span>wednesday</span><input type="time" name="wednesday-time" value=""><input type="range"
+                            name="wednesday-amount" min="0.000" max="10.000" value=""></label>
+                </div>
                 <div class="time-amount" id="thursday">
-                    <label><span>thursday</span><input type="time" name="thursday-time" value=""><input type="range" name="thursday-amount" min="0.000" max="10.000" value=""></label>
+                    <label><span>thursday</span><input type="time" name="thursday-time" value=""><input type="range"
+                            name="thursday-amount" min="0.000" max="10.000" value=""></label>
                 </div>
                 <div class="time-amount" id="friday">
-                    <label><span>friday</span><input type="time" name="friday-time" value=""><input type="range" name="friday-amount" min="0.000" max="10.000" value=""></label>
-                </div>    
+                    <label><span>friday</span><input type="time" name="friday-time" value=""><input type="range"
+                            name="friday-amount" min="0.000" max="10.000" value=""></label>
+                </div>
                 <div class="time-amount" id="saturday">
-                    <label><span>saturday</span><input type="time" name="saturday-time" value=""><input type="range" name="saturday-amount" min="0.000" max="10.000" value=""></label>
+                    <label><span>saturday</span><input type="time" name="saturday-time" value=""><input type="range"
+                            name="saturday-amount" min="0.000" max="10.000" value=""></label>
                 </div>
                 <div class="time-amount" id="sunday">
-                    <label><span>sunday</span><input type="time" name="sunday-time" value=""><input type="range" name="sunday-amount" min="0.000" max="10.000" value=""></label>
+                    <label><span>sunday</span><input type="time" name="sunday-time" value=""><input type="range"
+                            name="sunday-amount" min="0.000" max="10.000" value=""></label>
                 </div>
                 <input type="submit" value="submit">
             </form>
@@ -175,15 +200,88 @@
             </div> -->
         </div>
     </div>
-    <script src="{% static 'wheather_t.js' %}"></script>
-    <script src="{% static 'wheather_m.js' %}"></script>
-    <script src="{% static 'soil_t.js' %}"></script>
-    <script src="{% static 'soil_m.js' %}"></script>
-    <script src="{% static 'humadity.js' %}"></script>
-    <script src="{% static 'wind.js' %}"></script>
-    <script src="{% static 'uv.js' %}"></script>
+    <script>
+
+        // رطوبت
+        var progress_hps = {{ mydata.humi }};
+
+        document.getElementById("hps").style.background =
+            "conic-gradient( #98ff79 " +
+            progress_hps +
+            "%, #072400 " +
+            progress_hps +
+            "%)";
+
+        document.getElementById("hmc").innerHTML =
+            progress_hps.toString() + "%";
+        // دمای هوا
+        var progress_wtps = {{ mydata.temp }};
+        document.getElementById("wtps").style.background =
+            "conic-gradient( #98ff79 " +
+            progress_wtps +
+            "%, #072400 " +
+            progress_wtps +
+            "%)";
+
+        document.getElementById("wtmc").innerHTML =
+            progress_wtps.toString() + "°C";
+
+
+        // رطوبت خاک
+
+        var progress_smps = {{ mydata.soilm }};
+
+        document.getElementById("smps").style.background =
+            "conic-gradient( #98ff79 " +
+            progress_smps +
+            "%, #072400 " +
+            progress_smps +
+            "%)";
+
+        document.getElementById("smmc").innerHTML =
+            progress_smps.toString() + "%";
+
+        // uv 
+        var progress_uvmc = {{ mydata.rays }};
+
+        if (progress_uvmc <= 2) {
+            document.getElementById("uvmc").style.color = "#2bff00";
+        }
+        if (progress_uvmc > 2 && progress_uvmc <= 5) {
+            document.getElementById("uvmc").style.color = "#fffb00";
+        }
+        if (progress_uvmc > 5 && progress_uvmc <= 7) {
+            document.getElementById("uvmc").style.color = "#ff6600";
+        }
+        if (progress_uvmc > 7 && progress_uvmc <= 10) {
+            document.getElementById("uvmc").style.color = "#ff0000";
+        }
+        if (progress_uvmc > 10) {
+            document.getElementById("uvmc").style.color = "#79005e";
+        }
+
+        document.getElementById("uvmc").innerHTML =
+            progress_uvmc.toString() + "";
+
+        // rain
+
+        var progress_wmc = {{ mydata.rain }};
+
+        document.getElementById("wmc").innerHTML =
+            progress_wmc.toString() + " rain situation";
+    </script>
+
+    <!-- <script src="{% static 'wheather_t.js' %}"></script> -->
+    <!-- <script src="{% static 'wheather_m.js' %}"></script> -->
+
+    <!-- <script src="{% static 'soil_m.js' %}"></script> -->
+    <!-- <script src="{% static 'humadity.js' %}"></script> -->
+    <!-- <script src="{% static 'wind.js' %}"></script> -->
+    <!-- <script src="{% static 'uv.js' %}"></script> -->
     <script src="{% static 'plant_status.js' %}"></script>
-    <script src="{% static 'irrigation_program.js' %}"></script>
-    
+    <!-- <script src="{% static 'irrigation_program.js' %}"></script> -->
+
 </body>
+{% endblock %}
+
 </html>

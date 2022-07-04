@@ -1,20 +1,36 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/smartfarm/assets/main_style.css">
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
     <title>smartfarm</title>
 </head>
+{% block content %}
 <body>
+    
     <div class="header">
         <h1 style="color: #ffffff;">smartfarm</h1>
     </div>
-    <form class="login" action="/smartfarm/templates/main.html" method="POST">
-        <label>username: <input type="text" name="username" value=""></label>
-        <label>password: <input type="text" name="username" value=""></label>
+    <form class="login"  method="POST">
+        {% csrf_token %}
+        <label>username: 
+        {{ login_form.user_name }}
+        {% for error in login_form.user_name.errors %}
+        <p style="color: red;">{{ error }}</p>
+        {% endfor %}
+        <label>password: {{ login_form.password }}
+        {% for error in login_form.password.errors %}
+        <p style="color: red;">{{ error }}</p>
+        {% endfor %}
+        <br>
+        <br>
+        <br>
         <input type="submit" value="login">
     </form>
+   
 </body>
 </html>
+{% endblock %}

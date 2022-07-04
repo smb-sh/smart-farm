@@ -1,4 +1,4 @@
-var progress = 80;
+var progress = 50;
 
 // function setProgress() {
 //   document.getElementById("wtps").style.background =

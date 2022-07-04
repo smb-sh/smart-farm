@@ -24,8 +24,8 @@ CSRF_TRUSTED_ORIGINS = ['https://www.smartfarm.smbapp.ir']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 IP_SETTING = os.environ.get('IP_SETTING')
 ALLOWED_HOSTS = ['https://smartfarm.smbapp.ir','https://www.smartfarm.smbapp.ir',IP_SETTING,'localhost','smartfarm.smbapp.ir','www.smartfarm.smbapp.ir']
 
@@ -104,7 +104,12 @@ DATABASES = {
         'PORT': PORT_DATABASE,
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -149,8 +154,8 @@ STATIC_ROOT='/home/smbapp/domains/smartfarm.smbapp.ir/public_html/static'
 MEDIA_ROOT='/home/smbapp/domains/smartfarm.smbapp.ir/public_html/media'
 
 # for developing in device
-#STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn", "static_root")
-#MEDIA_ROOT = os.path.join(BASE_DIR, "static_cdn", "media_root")
+# STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn", "static_root")
+# MEDIA_ROOT = os.path.join(BASE_DIR, "static_cdn", "media_root")
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

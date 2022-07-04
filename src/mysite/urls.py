@@ -15,11 +15,12 @@ Including another URLconf
 from django.conf.urls import handler404, handler500
 from django.contrib import admin
 from django.urls import path, include
-from .views import panel
+from .views import panel ,login_page
  
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',panel),
+    path('login/',login_page),
     path('api/',include('api_app.urls')),
     # path('account/',include('account_app.urls')),
     # path('header', header, name="header"),

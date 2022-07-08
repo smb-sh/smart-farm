@@ -8,13 +8,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main_style.css' %}">
     <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>smartfarm</title>
 </head>
 {% block content %}
 
+<style>
+    #mylink_logout {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: auto;
+        
+    }
+    #mylink_refresh {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: auto;
+        
+    }
+
+</style>
+
 <body>
     <div class="header">
-        <h1 style="color: #ffffff;">smartfarm</h1>
+        <div>
+            <img class="myimage" src="{% static 'images/icon.png' %}" width="60" height="60">
+            <h1 style="color: #ffffff;">
+
+                smartfarm</h1>
+
+        </div>
+    </div>
+    <div id="mylink_logout">
+        <a class="mylink" href="{% url 'logout' %}">
+            <div>
+                <i class="fa fa-sign-out mylink" style="font-size:32px;color:rgb(255, 255, 255)"></i>
+            </div>
+        </a>
+    </div>
+    <div id="mylink_refresh">
+        <a class="mylink" href="{% url 'panel' %}">
+            <div>
+                <i class="fa fa-refresh fa-spin" style="font-size:32px;color:rgb(255, 255, 255)"></i>
+            </div>
+        </a>
     </div>
     <div class="circle-diagrams">
         <div class="info_container">
@@ -115,8 +154,8 @@
         <div class="info_container">
             <div class="box">
                 <h2>Latest report</h2>
-                <h2>{{ mydata.date_added }}</h2>
-                
+                <h2>{{ date_added }}</h2>
+
             </div>
         </div>
     </div>
@@ -126,10 +165,16 @@
                 <h1>your plant</h1>
             </div>
             <img class="plant_image" src="{% static 'images/plant.jpg' %}">
-            <div class="title">
+            
+            
+            
+            <!-- delete start -->
+
+            <!-- <div class="title">
                 <h1>irrigation program</h1>
-            </div>
-            <div class="week">
+            </div> -->
+            
+            <!-- <div class="week">
                 <label><input type="checkbox" name="monday" value="0"><span>monday</span></label>
                 <label><input type="checkbox" name="thursday" value="1"><span>tuesday</span></label>
                 <label><input type="checkbox" name="wednesday" value="2"><span>wednesday</span></label>
@@ -168,7 +213,9 @@
                             name="sunday-amount" min="0.000" max="10.000" value=""></label>
                 </div>
                 <input type="submit" value="submit">
-            </form>
+            </form> -->
+
+            <!-- delete end -->
             <!-- <div class="irrigation_settings">
                 <div class="days">
                     <span>monday</span>
@@ -203,7 +250,7 @@
     <script>
 
         // رطوبت
-        var progress_hps = {{ mydata.humi }};
+        var progress_hps = {{ humidity }};
 
         document.getElementById("hps").style.background =
             "conic-gradient( #98ff79 " +
@@ -215,7 +262,7 @@
         document.getElementById("hmc").innerHTML =
             progress_hps.toString() + "%";
         // دمای هوا
-        var progress_wtps = {{ mydata.temp }};
+        var progress_wtps = {{ temperature }};
         document.getElementById("wtps").style.background =
             "conic-gradient( #98ff79 " +
             progress_wtps +
@@ -229,7 +276,7 @@
 
         // رطوبت خاک
 
-        var progress_smps = {{ mydata.soilm }};
+        var progress_smps = {{ moisture }};
 
         document.getElementById("smps").style.background =
             "conic-gradient( #98ff79 " +
@@ -242,7 +289,7 @@
             progress_smps.toString() + "%";
 
         // uv 
-        var progress_uvmc = {{ mydata.rays }};
+        var progress_uvmc = {{ uv }};
 
         if (progress_uvmc <= 2) {
             document.getElementById("uvmc").style.color = "#2bff00";
@@ -265,7 +312,7 @@
 
         // rain
 
-        var progress_wmc = {{ mydata.rain }};
+        var progress_wmc = {{ rain }};
 
         document.getElementById("wmc").innerHTML =
             progress_wmc.toString() + " rain situation";

@@ -15,7 +15,7 @@ def panel(request):
     # my_data = MyData.objects.filter(user=request.user.id).last()
     
     #new version 
-    ADAFRUIT_IO_KEY = 'aio_ZPiH584XLNAdt42qNsts5Yj3t3RG'
+    ADAFRUIT_IO_KEY = 'hello world'
 
     ADAFRUIT_IO_USERNAME = 'smart_farm'
     aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
@@ -28,11 +28,11 @@ def panel(request):
     
 
 
-    humidity_data = aio.receive(humidity.key)
-    moisture_data = aio.receive(moisture.key)
-    temperature_data = aio.receive(temperature.key)
-    rain_data = aio.receive(rain.key)
-    uv_data = aio.receive(uv.key)
+    humidity_data = aio.receive_previous(humidity.key)
+    moisture_data = aio.receive_previous(moisture.key)
+    temperature_data = aio.receive_previous(temperature.key)
+    rain_data = aio.receive_previous(rain.key)
+    uv_data = aio.receive_previous(uv.key)
     # print(humidity_data,
     # moisture_data,
     # pump_data,
@@ -40,11 +40,19 @@ def panel(request):
     # rain_data,
     # uv_data
     # )
+    if humidity_data.value == 'nan':
+        my_humidity = 0
+    else:
+        my_humidity = humidity_data.value
 
+    if temperature_data.value == 'nan':
+        my_temper = 0
+    else:
+        my_temper = temperature_data.value
     context = {
-        'humidity':humidity_data.value,
+        'humidity':my_humidity,
         'moisture':moisture_data.value,
-        'temperature':temperature_data.value,
+        'temperature':my_temper,
         'rain':rain_data.value,
         'uv':uv_data.value,
         'date_added':uv_data.created_at

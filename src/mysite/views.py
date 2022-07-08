@@ -9,6 +9,7 @@ from Adafruit_IO import Client, Feed, Data, RequestError
 from dotenv import load_dotenv
 import os
 
+load_dotenv()
 ADAFRUIT_IO_KEY = os.environ.get('ADAFRUIT_IO_KEY')
 
 ADAFRUIT_IO_USERNAME = 'smart_farm'

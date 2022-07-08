@@ -15,7 +15,7 @@ def panel(request):
     # my_data = MyData.objects.filter(user=request.user.id).last()
     
     #new version 
-    ADAFRUIT_IO_KEY = 'aio_GbDH71hIOjxygEcmjXDcfSOfaiuc'
+    ADAFRUIT_IO_KEY = 'aio_ZPiH584XLNAdt42qNsts5Yj3t3RG'
 
     ADAFRUIT_IO_USERNAME = 'smart_farm'
     aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)

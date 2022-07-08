@@ -6,13 +6,8 @@ from django.contrib.auth import login, get_user_model, authenticate ,logout
 from .forms import LoginForm
 from decription_app.models import MyData
 from Adafruit_IO import Client, Feed, Data, RequestError
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-ADAFRUIT_IO_KEY = 'aio_GbDH71hIOjxygEcmjXDcfSOfaiuc'
 
-ADAFRUIT_IO_USERNAME = 'smart_farm'
 
 @login_required(login_url='login/')
 def panel(request):
@@ -20,6 +15,9 @@ def panel(request):
     # my_data = MyData.objects.filter(user=request.user.id).last()
     
     #new version 
+    ADAFRUIT_IO_KEY = 'aio_GbDH71hIOjxygEcmjXDcfSOfaiuc'
+
+    ADAFRUIT_IO_USERNAME = 'smart_farm'
     aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
     
     humidity = aio.feeds('humidity')

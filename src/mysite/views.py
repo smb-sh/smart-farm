@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-ADAFRUIT_IO_KEY = os.environ.get('ADAFRUIT_IO_KEY')
+ADAFRUIT_IO_KEY = "aio_HMdP27vS4cztRDJuLh1SGtrC08kF"
 
 ADAFRUIT_IO_USERNAME = 'smart_farm'
 

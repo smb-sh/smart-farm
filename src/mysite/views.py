@@ -7,35 +7,33 @@ from .forms import LoginForm
 from decription_app.models import MyData
 from Adafruit_IO import Client, Feed, Data, RequestError
 from dotenv import load_dotenv
+import os
 
-
-ADAFRUIT_IO_KEY = 'aio_HMdP27vS4cztRDJuLh1SGtrC08kF'
+ADAFRUIT_IO_KEY = os.environ.get('ADAFRUIT_IO_KEY')
 
 ADAFRUIT_IO_USERNAME = 'smart_farm'
 
 @login_required(login_url='login/')
 def panel(request):
     
-    my_data = MyData.objects.filter(user=request.user.id).last()
+    # my_data = MyData.objects.filter(user=request.user.id).last()
     
     #new version 
     aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
     try:
         humidity = aio.feeds('humidity')
         moisture = aio.feeds('moisture')
-        pump = aio.feeds('pump')
         temperature = aio.feeds('temperature')
         rain = aio.feeds('rain')
         uv = aio.feeds('uv')
     except RequestError:
         # feed = Feed(name="temperature")
         # temperature = aio.create_feed(feed)
-        print("error in api_site.py line 17")
+        print("error in api_site.py line 33")
 
 
     humidity_data = aio.receive(humidity.key)
     moisture_data = aio.receive(moisture.key)
-    pump_data = aio.receive(pump.key)
     temperature_data = aio.receive(temperature.key)
     rain_data = aio.receive(rain.key)
     uv_data = aio.receive(uv.key)

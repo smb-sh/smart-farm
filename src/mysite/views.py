@@ -21,7 +21,7 @@ def panel(request):
     #new version 
     aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
     try:
-        humidity = aio.feeds('humidity')
+        myhumidity = aio.feeds('humidity')
         moisture = aio.feeds('moisture')
         temperature = aio.feeds('temperature')
         rain = aio.feeds('rain')
@@ -32,7 +32,7 @@ def panel(request):
         print("error in api_site.py line 33")
 
 
-    humidity_data = aio.receive(humidity.key)
+    humidity_data = aio.receive(myhumidity.key)
     moisture_data = aio.receive(moisture.key)
     temperature_data = aio.receive(temperature.key)
     rain_data = aio.receive(rain.key)
